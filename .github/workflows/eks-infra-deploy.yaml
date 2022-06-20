@@ -26,6 +26,7 @@ jobs:
          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          AWS_TOKEN: ${{ secrets.AWS_TOKEN }}
          AWS_DEFAULT_REGION: eu-west-1
+         AWS_EKS_CLUSTER_NAME: acn-eks-clstr-testing
     steps:
       - uses: actions/checkout@v2
       - name: Configure AWS credentials
@@ -35,7 +36,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_TOKEN }}
           aws-region: eu-west-1
-          AWS_EKS_CLUSTER_NAME: acn-eks-clstr-testing
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_wrapper: false
