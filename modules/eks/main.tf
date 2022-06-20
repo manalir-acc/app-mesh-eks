@@ -175,7 +175,6 @@ resource "aws_eks_fargate_profile" "eks_fargate_system" {
   fargate_profile_name   = substr("${var.cluster_name}-${var.environment}-system-fargate-profile",0,64)
   pod_execution_role_arn = aws_iam_role.eks_fargate_system_role.arn
   subnet_ids             = var.private_subnets
-
   selector {
     namespace = "kube-system"
   }
