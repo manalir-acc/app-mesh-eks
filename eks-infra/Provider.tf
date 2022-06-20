@@ -1,7 +1,3 @@
-#provider "aws" {
-#  region = "var.region_name"
-#  profile = "AWS_741032333307_User"
-#}
 
 provider "aws" {
   region     = var.region_name
