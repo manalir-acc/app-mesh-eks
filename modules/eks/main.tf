@@ -290,8 +290,6 @@ resource "aws_iam_role_policy_attachment" "AWSAppMeshFullAccess" {
   role       = aws_iam_role.eks_appmesh_system_role.name
 }
 
-
-
 ################################################################################
 # IRSA
 # Note - this is different from EKS identity provider
