@@ -234,6 +234,63 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController2" {
 }
 
 
+/* ===========================================
+Creating IAM Role for Fargate profile AppMesh
+==============================================*/
+
+resource "aws_iam_role" "eks_appmesh_system_role" {
+  name = substr("${var.cluster_name}-eks_appmesh_system_role",0,64)
+  description = "Allow fargate cluster to allocate resources for running pods"
+  force_detach_policies = true
+  assume_role_policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+           "eks.amazonaws.com",
+           "eks-fargate-pods.amazonaws.com",
+           "appmesh.amazonaws.com"
+          ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+POLICY
+}
+
+resource "aws_iam_role_policy_attachment" "AmazonEKSFargatePodExecutionRolePolicy3" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"
+  role       = aws_iam_role.eks_appmesh_system_role.name
+}
+
+resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy3" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  role       = aws_iam_role.eks_appmesh_system_role.name
+}
+
+
+resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController3" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+  role       = aws_iam_role.eks_appmesh_system_role.name
+}
+
+
+resource "aws_iam_role_policy_attachment" "AWSCloudMapFullAccess" {
+  policy_arn = "arn:aws:iam::aws:policy/AWSCloudMapFullAccess"
+  role       = aws_iam_role.eks_appmesh_system_role.name
+}
+
+
+resource "aws_iam_role_policy_attachment" "AWSAppMeshFullAccess" {
+  policy_arn = "arn:aws:iam::aws:policy/AWSAppMeshFullAccess"
+  role       = aws_iam_role.eks_appmesh_system_role.name
+}
+
+
 
 ################################################################################
 # IRSA
