@@ -106,18 +106,18 @@ EOF
   ]
 }
 
-resource "local_file" "saved-manifesto" {
-  content = data.template_file.kubeconfig.rendered
-  filename = "/home/runner/.kube/config-custom.cfg"
-}
-
-resource "null_resource" "run" {
-  triggers = {
-    file = data.template_file.kubeconfig.rendered
-  }
-
-  provisioner "local-exec" {
-    command = "cat /home/runner/.kube/config-custom.cfg"
-  }
-}
+#resource "local_file" "saved-manifesto" {
+#  content = data.template_file.kubeconfig.rendered
+#  filename = "/home/runner/.kube/config-custom.cfg"
+#}
+#
+#resource "null_resource" "run" {
+#  triggers = {
+#    file = data.template_file.kubeconfig.rendered
+#  }
+#
+#  provisioner "local-exec" {
+#    command = "cat /home/runner/.kube/config-custom.cfg"
+#  }
+#}
 
