@@ -166,8 +166,6 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
   role       = aws_iam_role.eks_fargate_role.name
 }
 
-
-
 /* =======================================
 Creating Fargate Profile for CoreDNS
 ==========================================*/
