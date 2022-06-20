@@ -272,23 +272,21 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy3" {
   role       = aws_iam_role.eks_appmesh_system_role.name
 }
 
-
 resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController3" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
   role       = aws_iam_role.eks_appmesh_system_role.name
 }
-
 
 resource "aws_iam_role_policy_attachment" "AWSCloudMapFullAccess" {
   policy_arn = "arn:aws:iam::aws:policy/AWSCloudMapFullAccess"
   role       = aws_iam_role.eks_appmesh_system_role.name
 }
 
-
 resource "aws_iam_role_policy_attachment" "AWSAppMeshFullAccess" {
   policy_arn = "arn:aws:iam::aws:policy/AWSAppMeshFullAccess"
   role       = aws_iam_role.eks_appmesh_system_role.name
 }
+
 
 ################################################################################
 # IRSA
