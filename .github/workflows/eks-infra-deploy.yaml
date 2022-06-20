@@ -84,16 +84,3 @@ jobs:
 #          aws s3 cp --recursive /home/runner/.kube/ s3://landg-terraform-state/eks/configfile/ --region "eu-west-2"
 #          ls -lart
 #          cat config-custom.cfg
-  comment:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
