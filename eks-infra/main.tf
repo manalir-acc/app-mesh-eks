@@ -63,12 +63,12 @@ module "eks_kubernetes_addons" {
   depends_on = [module.eks, module.coredns_patching]
 }
 
-module "aws_appmesh_controller" {
-  source  = "../modules/aws-appmesh-controller"
-  k8s_namespace    = "appmesh-system"
-  k8s_cluster_name = module.eks.eks_cluster_name
-  depends_on =  [module.eks, module.coredns_patching]
-}
+#module "aws_appmesh_controller" {
+#  source  = "../modules/aws-appmesh-controller"
+#  k8s_namespace    = "appmesh-system"
+#  k8s_cluster_name = module.eks.eks_cluster_name
+#  depends_on =  [module.eks, module.coredns_patching]
+#}
 #module "kubernetes_app" {
 #    source                      =  "../modules/kubernetes-app"
 #    app_namespace               =  var.fargate_app_namespace[0]

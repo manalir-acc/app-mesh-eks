@@ -14,7 +14,6 @@ terraform {
 locals {
   cluster_name= data.aws_eks_cluster.eks_cluster.name
 }
-
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.eks_cluster.endpoint
   token                  = data.aws_eks_cluster_auth.aws_iam_authenticator.token
