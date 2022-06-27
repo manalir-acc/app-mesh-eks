@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "landg-terraform-state"
-    key    = "eks/test/terraform.tfstate"
+    key    = "landg-terraform/test/eks-cluster/terraform.tfstate"
     region = "eu-west-1"
     encrypt= true
 
