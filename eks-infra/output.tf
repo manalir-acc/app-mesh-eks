@@ -17,6 +17,6 @@
 #    value = "${data.kubernetes_ingress.address.load_balancer_ingress}"
 #}
 
-output "cluster_name" {
-  value = module.eks.eks_cluster_name
-}
+# output "cluster_name" {
+#   value = module.eks.eks_cluster_name
+# }
