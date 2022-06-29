@@ -56,7 +56,6 @@ jobs:
             mkdir /home/runner/.kube/
             touch /home/runner/.kube/config
             chmod -R 777 /home/runner/.kube/
-            rm -rf /home/runner/.kube/config
             echo "Finding existing EKS cluster...." 
             VAR_EKS_CLUSTER_NAME=$(aws eks list-clusters --region ${AWS_DEFAULT_REGION} --query clusters[0] --output text)
             echo "EKS Cluster found: "$VAR_EKS_CLUSTER_NAME
