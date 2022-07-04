@@ -1,7 +1,4 @@
-variable "certificate_name" {
-  description = "Name of the ACM certificate."
-  type        = string
-}
+
 
 variable "product_domain" {
   description = "Abbreviation of the product domain this ACM certificate belongs to."
