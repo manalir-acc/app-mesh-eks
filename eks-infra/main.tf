@@ -69,8 +69,8 @@
 
 module "acm" {
   source           = "../modules/acm-cert"
-  domain_name      = "lb.${module.eks.eks_cluster_name}.test.landg.com"
-  hosted_zone_name = "${module.eks.eks_cluster_name}.test.landg.com"
+  domain_name      = "lb.landg-eks.test.landg.com"
+  hosted_zone_name = "landg-eks.test.landg.com"
   #certificate_name = "wildcard.tsi.dev-tvlk.cloud"
   environment      = "testing"
   description      = "Wildcard certificate for example.tsi.dev-tvlk.cloud"
