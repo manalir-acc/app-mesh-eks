@@ -74,7 +74,7 @@ module "acm" {
   #certificate_name = "wildcard.tsi.dev-tvlk.cloud"
   environment      = "testing"
   description      = "Wildcard certificate for example.tsi.dev-tvlk.cloud"
-  product_domain   = "exm"
+  product_domain   = "eks"
 }
 # module "kubernetes_app" {
 #    source           =  "../modules/kubernetes-app"
