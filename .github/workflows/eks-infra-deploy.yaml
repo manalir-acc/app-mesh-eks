@@ -72,13 +72,13 @@ jobs:
         #if: always()
         if: "!contains(github.event.head_commit.message, 'destroy')"
         id: plan
-        run: TF_LOG=DEBUG terraform plan -input=false -var-file=${{ matrix.environment }}/terraform.tfvars -no-color
+        run: terraform plan -input=false -var-file=${{ matrix.environment }}/terraform.tfvars -no-color
       - name: Terraform apply
         #if: always()
        # if: github.ref == 'refs/heads/master'
         if: "!contains(github.event.head_commit.message, 'destroy')"
         id: apply
-        run: TF_LOG=DEBUG terraform apply -auto-approve -input=false -var-file=${{matrix.environment }}/terraform.tfvars
+        run: terraform apply -auto-approve -input=false -var-file=${{matrix.environment }}/terraform.tfvars
       - name: Terraform Destroy
         #if: github.ref == 'refs/heads/master'
         if: "contains(github.event.head_commit.message, 'destroy')"
