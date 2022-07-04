@@ -1,16 +1,12 @@
 resource "aws_acm_certificate" "this" {
   domain_name       = var.domain_name
+  subject_alternative_names = ["*.${var.domain_name}"]
   validation_method = "DNS"
 
-  tags = {
-    #Name          = var.certificate_name
-    ProductDomain = var.product_domain
-    Environment   = var.environment
-    Description   = var.description
-    ManagedBy     = "terraform"
+  lifecycle {
+    create_before_destroy = true
   }
 }
-
 resource "aws_route53_record" "this" {
   for_each = {
     for dvo in aws_acm_certificate.this.domain_validation_options : dvo.domain_name => {
