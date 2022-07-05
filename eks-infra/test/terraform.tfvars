@@ -15,6 +15,6 @@ availability_zones_public    =  ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 availability_zones_private   =  ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 cidr_block_internet_gw       =  "0.0.0.0/0"
 cidr_block_nat_gw            =  "0.0.0.0/0"
-fargate_app_namespace        =  ["ns-fargate-app", "ns-fargate-app2"]
+fargate_app_namespace        =  ["my-apps"]
 
 
