@@ -50,7 +50,7 @@ module "aws_alb_controller" {
  # alb_controller_depends_on =  ""
   depends_on = [module.eks, module.coredns_patching]
 }
-#
+
 module "eks_kubernetes_addons" {
   source         = "../modules/kubernetes-addons"
   enable_amazon_eks_vpc_cni    = true
@@ -59,12 +59,12 @@ module "eks_kubernetes_addons" {
   k8s_cluster_name = module.eks.eks_cluster_name
   depends_on = [module.eks, module.coredns_patching]
 }
-module "aws_appmesh_controller" {
-  source  = "../modules/aws-appmesh-controller"
-  k8s_namespace    = "appmesh-system"
-  k8s_cluster_name = module.eks.eks_cluster_name
-  depends_on =  [module.eks, module.coredns_patching]
-}
+# module "aws_appmesh_controller" {
+#   source  = "../modules/aws-appmesh-controller"
+#   k8s_namespace    = "appmesh-system"
+#   k8s_cluster_name = module.eks.eks_cluster_name
+#   depends_on =  [module.eks, module.coredns_patching]
+# }
 
 # module "acm" {
 #   source           = "../modules/acm-cert"
